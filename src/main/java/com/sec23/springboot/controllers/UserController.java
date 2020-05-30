@@ -32,4 +32,9 @@ public class UserController {
         User usr = service.fromDTO(usrdto);
         usr = service.insert(usr);
     }
+
+    @DeleteMapping(value="/{id}")
+    public void deleteUser(@PathVariable String id){
+        service.deleteUser(id);
+    }
 }
