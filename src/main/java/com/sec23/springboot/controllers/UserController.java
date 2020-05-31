@@ -1,6 +1,7 @@
 package com.sec23.springboot.controllers;
 
 import com.sec23.springboot.domain.DTO.UserDTO;
+import com.sec23.springboot.domain.Post;
 import com.sec23.springboot.domain.User;
 import com.sec23.springboot.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,11 @@ public class UserController {
         User usr = service.fromDTO(usrdto);
         usr.setId(id);
         usr = service.updateUser(usr);
+    }
+
+    @GetMapping(value="/{id}/posts")
+    public List<Post> findPosts(@PathVariable String id){
+        User user = service.findById(id);
+        return user.getPosts();
     }
 }
