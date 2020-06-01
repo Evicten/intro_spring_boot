@@ -1,7 +1,10 @@
 package com.sec23.springboot.domain;
 
 import com.sec23.springboot.domain.DTO.AuthorDTO;
+import com.sec23.springboot.domain.DTO.CommentDTO;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Post {
@@ -10,6 +13,7 @@ public class Post {
     private String title;
     private String body;
     private AuthorDTO author;
+    private List<CommentDTO> comments = new ArrayList<>();
 
     public Post() {
     }
@@ -60,6 +64,14 @@ public class Post {
 
     public void setAuthor(AuthorDTO author) {
         this.author = author;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentDTO> comments) {
+        this.comments = comments;
     }
 
     @Override
